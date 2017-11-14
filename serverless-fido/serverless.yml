@@ -1,0 +1,13 @@
+service: serverless-fido
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  authorization:
+    handler: handler.authorization
+    events:
+      - http:
+          path: slack/authorization
+          method: get
