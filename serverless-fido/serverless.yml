@@ -11,3 +11,10 @@ functions:
       - http:
           path: slack/authorization
           method: get
+
+  fido:
+    handler: handler.fido
+    events:
+      - http:
+          path: slack/fido
+          method: get
