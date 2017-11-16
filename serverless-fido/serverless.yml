@@ -3,6 +3,9 @@ service: serverless-fido
 provider:
   name: aws
   runtime: nodejs6.10
+  environment:
+    SLACK_CLIENT_ID: ${SLACK_CLIENT_ID}
+    SLACK_CLIENT_SECRET: ${SLACK_CLIENT_SECRET}
 
 functions:
   authorization:
