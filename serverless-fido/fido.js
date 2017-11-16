@@ -1,8 +1,6 @@
 const request = require('request-promise');
 
-module.exports = () => {
-    console.log('fido was called');
-    
+module.exports = () => {    
     const url = 'http://dog.ceo/api/breeds/image/random';
     
     const options = {
