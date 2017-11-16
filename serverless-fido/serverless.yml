@@ -20,4 +20,4 @@ functions:
     events:
       - http:
           path: slack/fido
-          method: get
+          method: post
