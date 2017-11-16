@@ -6,7 +6,6 @@ const unfurl = require('./unfurl');
 
 module.exports.authorization = (event, context, callback) => {
     const code = event.queryStringParameters.code;
-    console.log(code);
 
     oauth(code)
     .then(() => {
@@ -21,8 +20,6 @@ module.exports.authorization = (event, context, callback) => {
         callback(null, response);
     })
     .catch((error) => {
-        console.log('ERROR');
-
         const response = {
             statusCode: 500,
             body: JSON.stringify({
@@ -36,7 +33,6 @@ module.exports.authorization = (event, context, callback) => {
 };
 
 module.exports.fido = (event, context, callback) => {
-    console.log('dog api was called');
 
     fido()
     .then((imageURL) => {
@@ -50,6 +46,6 @@ module.exports.fido = (event, context, callback) => {
         callback(null, response);
     })
     .catch((error) => {
-        console.log('errrror');
+        console.log(error);
     })
 };
