@@ -1,31 +1,55 @@
 'use strict';
 
+const oauth = require('./oauth');
+const fido = require('./fido');
+const unfurl = require('./unfurl');
+
 module.exports.authorization = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Authorizing...',
-      input: event,
-    }),
-  };
+    const code = event.queryStringParameters.code;
+    console.log(code);
 
-  callback(null, response);
+    oauth(code)
+    .then(() => {
+        const response = {
+            statusCode: 200,
+            body: JSON.stringify({
+                message: 'Authorizing...',
+                input: event,
+            }),
+        };
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+        callback(null, response);
+    })
+    .catch((error) => {
+        console.log('ERROR');
+
+        const response = {
+            statusCode: 500,
+            body: JSON.stringify({
+                message: error,
+                input: event,
+            }),
+        };
+
+        callback(null, response);
+    });
 };
 
 module.exports.fido = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Getting a doggo pupper...',
-      input: event,
-    }),
-  };
+    console.log('dog api was called');
 
-  callback(null, response);
+    fido()
+    .then((imageURL) => {
+        console.log(imageURL);
+        var attachment = unfurl(imageURL);
+        const response = {
+            statusCode: 200,
+            body: JSON.stringify(attachment),
+        };
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+        callback(null, response);
+    })
+    .catch((error) => {
+        console.log('errrror');
+    })
 };
