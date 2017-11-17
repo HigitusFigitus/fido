@@ -44,4 +44,4 @@ The app uses the serveless framework with AWS Lambda and API Gateway, so the fol
 
 ## Demo
 
-![Fido Demo](images/fido_gif.mp4)
+![Fido Demo](/images/fido_screencast.gif)
