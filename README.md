@@ -22,7 +22,7 @@ This is a demo app and it's currently not distributed. The above button is simpl
 
 
 ## Install
-The app uses the serveless framework with AWS Lambda and API Gateway, so the following steps assume that you have a AWS account (free tier is available).
+The app uses the serveless framework with AWS Lambda and API Gateway, so the following steps assume that you have a AWS account (a free tier is available).
 + Start by [creating a Slack app](https://api.slack.com/slack-apps)
 + Find your app under `Your Apps` and click it: here you'll find the app credentials that are needed later
 + Install the serverless framework `npm install -g serverless`
