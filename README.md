@@ -31,12 +31,12 @@ The app uses the serveless framework with AWS Lambda and API Gateway, so the fol
 + This will give you access to the user's `Access Key ID` and `Secret Access Key`
 + Switch back to your terminal and type `serverless config credentials --provider aws --key <YOUR_KEY> --secret <YOUR_SECRET>` (make sure to keep the keys safe and hidden)
 + Clone this repository `git clone https://github.com/HigitusFigitus/fido.git`
-+ `cd` into `serverless-fido`, create a new `.env` file and add your `SLACK_CLIENT_ID` and `SLACK_CLIENT_SECRET` here
++ `cd` into `serverless-fido`, create a `.env` file and add your `SLACK_CLIENT_ID` and `SLACK_CLIENT_SECRET` here
 + Download the dependencies for the app `npm install`
 + Deploy to AWS `serverless deploy -v`
 + After the deploy is done, note that two endpoints are provided
-+ Copy the GET endpoint and paste it under `Add a New redirect URL` in the OAuth & Permissions section of your Slack app
-+ Copy the POST endpoint and go in your app's Slash Commands section: paste the endpoint under Request URL when you `Create New Command` called `/fido`
++ Copy the GET endpoint, return to your app's configuration page, and paste it under `Add a New redirect URL` in the OAuth & Permissions section 
++ Copy the POST endpoint, return to your app's configuration page, and in the Slash Commands section paste it under `Request URL` when you `Create New Command` called `/fido`
 + [Create a button](https://api.slack.com/docs/slack-button) for your app
 + Click on the button and authorize the app for your team
 + The app is now in your team and the slash command can be used in any channel
